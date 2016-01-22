@@ -1,0 +1,90 @@
+$dark-blueprint: #226d9b;
+$light-blueprint: #2c8fcb;
+$darker-blueprint: darken($dark-blueprint, 10%);
+
+$paragraph: rgba(0, 0, 0, .8);
+$inactive-dark: #cfd3d7;
+$active-dark: #7c8187;
+$active-darker: #191b1a;
+$dark-transparent: #8a949f; // Firefox doesn't like our transparent color: transparentize($dark, 0.5)
+
+$subtle: #999;
+$subtler: lighten($subtle, 22%);
+
+$light: #fff;
+$inactive-light: transparentize($light, .5);
+$active-light: transparentize($light, .1);
+
+$danger: #b10a0a;
+$warning: #dc9e54;
+$healthy: #00c13a;
+$unhealthy: #f4e61d;
+
+$disabled: #b10a0a;
+$enabled: #59a42b;
+
+$search-highlight: #009dff;
+
+$divider-light: #f6f6f6;
+$divider-medium: #d8d8d8;
+
+///// NAVIGATION /////
+$focus-light: #f9f9f9;
+
+
+///// PRODUCTS /////
+
+$c-phoam-green: #00b4a4;
+$evolve-dark: #008176;
+$c-grey: #999;
+$cipher-bg: #f3f3f3;
+$cipher-dropdown: #898989;
+$issue-color: #da4f49;
+$overdue-tasks-color: $issue-color;
+
+$link: #8cc63e;
+$link-secondary: #d6df23;
+
+$view-default: #54a8dc;
+$view: #27a9e1;
+$view-secondary: #00abc4;
+
+$echo: #d65277;
+$orchid: #91268f;
+$voice: #f7931d;
+$enhance: #1c4456;
+
+$evolve: $c-phoam-green;
+
+
+///// ENCOUNTERS /////
+
+$encounters-alpha: .2;
+$encounter-planned: rgba(30, 144, 255, $encounters-alpha);
+$encounter-in-progress: $encounter-planned;
+$encounter-finished: #fff;
+$encounter-cancelled: rgba(218, 0, 0, $encounters-alpha);
+$encounter-onleave: $encounter-cancelled;
+
+
+///// TASKS /////
+$pending: #98cdb9;
+$complete: #3fa070;
+$dismissed: #aaa;
+
+$tag: #589cdc;
+
+$task-pending-header-bg: $pending;
+$task-pending-square-bg: #3f8fa0;
+
+$task-complete-header-bg: #98d9b5;
+$task-complete-square-bg: #3fa070;
+
+$task-dismissed-header-bg: #ef4545;
+$task-dismissed-square-bg: darken($task-dismissed-header-bg, 30%);
+
+$tasks-header-bg: #77addc;
+$tasks-square-bg: #446380;
+
+///// BOOTSTRAP //////
+$default: $evolve-dark;

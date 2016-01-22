@@ -1,0 +1,609 @@
+@import 'palette';
+
+@mixin breakpoint($point) {
+  @if $point == full {
+    @media (min-width: 1201px) { @content; }
+  } @else if $point == medium {
+    @media (min-width: 992px) { @content; }
+  } @else if $point == regular {
+    @media (min-width: 769px)  { @content; }
+  } @else if $point == small {
+    @media (min-width: 521px)  { @content; }
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Lato,'Helvetica Neue',Arial,sans-serif;
+}
+
+hr {
+  border-color: $evolve;
+  border-width: 3px;
+  max-width: 50px;
+
+  &.light {
+    border-color: $light;
+  }
+}
+
+a {
+  color: $evolve;
+  transition: all .35s;
+
+  &:hover,
+  &:focus {
+  color: $evolve-dark;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Lato,'Helvetica Neue',Arial,sans-serif;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: $paragraph;
+}
+
+.bg-primary {
+  background-color: $light;
+}
+
+.bg-dark {
+  background-color: #222;
+  color: $light;
+}
+
+section {
+  padding: 100px 0;
+}
+
+aside {
+  padding: 50px 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.navbar-default {
+  background-color: $light;
+  border-color: rgba(34, 34, 34, .05);
+  font-family: Lato,'Helvetica Neue',Arial,sans-serif;
+  transition: all .35s;
+
+  @include breakpoint(regular) {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, .3);
+
+    &.affix {
+      background-color: $light;
+      border-color: rgba(34,34,34,.05);
+
+      .nav {
+        > li {
+          > a {
+            color: #222;
+          }
+        }
+      }
+
+      .navbar-header {
+        .navbar-brand {
+          fill: $evolve !important;
+        }
+      }
+    }
+
+    .nav {
+      > li {
+        > a {
+          color: $light;
+        }
+      }
+    }
+
+    .navbar-header {
+      .navbar-brand {
+        fill: $light !important;
+      }
+    }
+  }
+
+  .navbar-header {
+    .navbar-brand {
+      display: inline-block;
+      fill: $evolve;
+      opacity: .8;
+      padding: 8px 15px;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+  .nav {
+    > li {
+      &.active {
+        > a {
+          background-color: $light;
+          color: $evolve;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
+
+      > a {
+        color: #222;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        @include breakpoint(regular) {
+          color: rgba(255, 255, 255, .7);
+        }
+
+        &:hover,
+        &:focus {
+          color: $evolve;
+
+          @include breakpoint(regular) {
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+}
+
+header {
+  background: linear-gradient(to right, #1e5799 0%,#1c4456 0%,$evolve 100%);
+  color: $light;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='$evolve',GradientType=1);
+  min-height: auto;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  @include breakpoint(regular) {
+    min-height: 100%;
+  }
+
+  .header-content {
+    padding: 100px 15px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    @include breakpoint(regular) {
+      padding: 0 50px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .header-content-inner {
+      @include breakpoint(regular) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1000px;
+      }
+
+      h1 {
+        font-weight: 100;
+        margin-bottom: 0;
+        margin-top: 0;
+        text-transform: uppercase;
+      }
+
+      hr {
+        margin: 30px auto;
+      }
+
+      p {
+        color: rgba(255, 255, 255, .7);
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 50px;
+
+        @include breakpoint(regular) {
+          font-size: 18px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 80%;
+        }
+      }
+    }
+  }
+}
+
+.evolve-side-nav {
+  display: none;
+
+  @include breakpoint(medium) {
+    display: block;
+
+    &:hover {
+      border-left: 3px solid $evolve;
+    }
+
+    > li {
+      border-left: 3px solid transparent;
+      list-style-type: none;
+      padding-left: 15px;
+
+      > a {
+        color: $paragraph;
+        font-size: 12px;
+        text-decoration: none;
+
+        h2 {
+          font-size: 16px;
+        }
+
+        > ul {
+          > li {
+            list-style-type: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-heading {
+  color: $paragraph;
+  font-size: 40px;
+  font-weight: 300;
+  margin: 0 0 30px;
+}
+
+.style-heading {
+  h3 {
+    color: $paragraph;
+    margin: 0 0 30px;
+  }
+
+  p {
+    color: $paragraph;
+    margin: 0 0 30px;
+  }
+}
+
+.style-block {
+  margin-bottom: 30px;
+
+  span {
+    display: block;
+    padding-top: 37%;
+    text-align: center;
+  }
+
+  p {
+    display: block;
+    padding-top: 45%;
+    text-align: center;
+  }
+
+  .dark-color-font {
+    color: $paragraph
+  }
+
+  .color-circle {
+    border-radius: 50px;
+    float: left;
+    height: 86px;
+    margin: 0 4% 60px;
+    width: 86px;
+  }
+
+  .c-orchid {
+    background-color: $orchid;
+  }
+
+  .c-echo {
+    background-color: $echo;
+  }
+
+  .c-voice {
+    background-color: $voice;
+  }
+
+  .c-link {
+    background-color: $link;
+  }
+
+  .c-link-secondary {
+    background-color: $link-secondary;
+  }
+
+  .c-view-default {
+    background-color: $view-default;
+  }
+
+  .c-view {
+    background-color: $view;
+  }
+
+  .c-view-secondary {
+    background-color: $view-secondary;
+  }
+
+  .c-evolve {
+    background-color: $evolve;
+  }
+
+  .c-evolve-dark {
+    background-color: $evolve-dark;
+  }
+
+  .c-c-grey {
+    background-color: $c-grey;
+  }
+
+  .c-cipher-bg {
+    background-color: $cipher-bg;
+  }
+
+  .c-cipher-dropdown {
+    background-color: $cipher-dropdown;
+  }
+
+  .c-issue-color {
+    background-color: $issue-color;
+  }
+
+  .c-overdue-tasks-color {
+    background-color: $overdue-tasks-color;
+  }
+}
+
+.service-box {
+    margin: 50px auto 0;
+    max-width: 400px;
+}
+
+@media(min-width:992px) {
+    .service-box {
+        margin: 20px auto 0;
+    }
+}
+
+.service-box p {
+    margin-bottom: 0;
+}
+
+.portfolio-box {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+.portfolio-box .portfolio-box-caption {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: $light;
+    opacity: 0;
+    background: rgba(240,95,64,.9);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    padding: 0 15px;
+    font-family: Lato,'Helvetica Neue',Arial,sans-serif;
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    font-size: 18px;
+}
+
+.portfolio-box:hover .portfolio-box-caption {
+    opacity: 1;
+}
+
+@media(min-width:768px) {
+    .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        font-size: 16px;
+    }
+
+    .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 22px;
+    }
+}
+
+.call-to-action h2 {
+    margin: 0 auto 20px;
+}
+
+.text-primary {
+    color: $evolve;
+}
+
+.no-gutter > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.btn-default {
+    border-color: $light;
+    color: #222;
+    background-color: $light;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    border-color: #ededed;
+    color: #222;
+    background-color: #f2f2f2;
+}
+
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+    border-color: $light;
+    background-color: $light;
+}
+
+.btn-default .badge {
+    color: $light;
+    background-color: #222;
+}
+
+.btn-primary {
+    border-color: $evolve;
+    color: $light;
+    background-color: $evolve;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    border-color: #ed431f;
+    color: $light;
+    background-color: #ee4b28;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    border-color: $evolve;
+    background-color: $evolve;
+}
+
+.btn-primary .badge {
+    color: $evolve;
+    background-color: $light;
+}
+
+.btn {
+    border: 0;
+    border-radius: 300px;
+    text-transform: uppercase;
+    font-family: Lato,'Helvetica Neue',Arial,sans-serif;
+    font-weight: 700;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+}
+
+::-moz-selection {
+    text-shadow: none;
+    color: $light;
+    background: #222;
+}
+
+::selection {
+    text-shadow: none;
+    color: $light;
+    background: #222;
+}
+
+img::selection {
+    color: $light;
+    background: 0 0;
+}
+
+img::-moz-selection {
+    color: $light;
+    background: 0 0;
+}
+
+body {
+    webkit-tap-highlight-color: #222;
+}

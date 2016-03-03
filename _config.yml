@@ -17,5 +17,8 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
+#get rid of when adding the right domain
+baseurl: /styleguide
+
 # Build settings
 markdown: kramdown
